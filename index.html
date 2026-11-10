@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070910">
+<title>HIMA | THE BROTHERHOOD</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap');
+:root{--gold:#ffb14a;--orange:#ff6a22;--ice:#65d9ff;--bg:#070910;--muted:#aeb8c8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#f6f8fc;font-family:Cairo,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 18% 22%,#ff781b25,transparent 34%),radial-gradient(ellipse at 85% 66%,#1c9edb20,transparent 40%),linear-gradient(140deg,#080a11,#101725 55%,#070910)}
+#stars{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.5;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{to{opacity:.12;transform:scale(.4)}}
+.scan{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.08;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px)}
+header{width:min(1120px,92%);margin:auto;padding:24px 0;display:flex;justify-content:space-between;align-items:center}
+.logo{font:900 15px Orbitron,sans-serif;letter-spacing:3px}
+.logo em{color:var(--gold);font-style:normal}
+.pill{border:1px solid #ffffff25;border-radius:40px;padding:7px 13px;color:#c9d2df;font-size:11px;background:#ffffff08}
+.pill i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#65f0a3;margin-left:7px;box-shadow:0 0 12px #65f0a3}
+.hero{min-height:80vh;display:grid;place-items:center;text-align:center;padding:50px 18px 90px;position:relative}
+.hero:after{content:"";position:absolute;bottom:9%;width:min(600px,80vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--ice),transparent);box-shadow:0 0 20px #ff9c45}
+.kicker{font-size:11px;letter-spacing:4px;color:var(--ice);font-family:Orbitron,sans-serif}
+h1{font:900 clamp(65px,15vw,150px)/1 Orbitron,sans-serif;letter-spacing:4px;margin:24px 0 12px;background:linear-gradient(120deg,#fff 10%,#ffcf8b 40%,#ff7a27 65%,#69d9ff 90%);background-clip:text;-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 25px #ff7b2833)}
+.tagline{font-size:clamp(18px,3.5vw,27px);font-weight:800;margin:12px 0}
+.tagline span{color:var(--gold)}
+.lead{max-width:640px;margin:12px auto;color:var(--muted);font-size:14px;line-height:2.1}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+button{font-family:inherit;cursor:pointer}
+.btn{border:0;border-radius:12px;padding:13px 22px;font-weight:900;transition:.25s}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.mainbtn{background:linear-gradient(100deg,#ffd08b,var(--orange));color:#17100a;box-shadow:0 8px 32px #ff7c2933}
+.ghost{background:#ffffff0b;border:1px solid #ffffff28;color:#fff}
+.scroll{position:absolute;bottom:22px;color:#8190a5;font:10px Orbitron,sans-serif;letter-spacing:3px}
+.wrap{width:min(950px,90%);margin:auto;padding:48px 0}
+.heading{text-align:center;margin-bottom:25px}
+.heading small{font:11px Orbitron,sans-serif;color:var(--ice);letter-spacing:3px}
+.heading h2{font-size:clamp(25px,5vw,38px);margin:8px 0}
+.panel{position:relative;overflow:hidden;border:1px solid #ffffff20;border-radius:24px;padding:clamp(25px,6vw,55px);text-align:center;background:linear-gradient(135deg,#ffffff10,#ffffff03);box-shadow:0 25px 90px #0007}
+.panel:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 20%,#ffffff08 48%,transparent 65%);transform:translateX(-100%);animation:sweep 7s infinite}
+@keyframes sweep{50%,100%{transform:translateX(100%)}}
+.message{font-size:clamp(22px,4vw,34px);line-height:2.1;font-weight:700;position:relative}
+.message strong{color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.card{border:1px solid #ffffff17;background:#ffffff08;border-radius:16px;padding:22px 12px;text-align:center}
+.card b{display:block;margin:7px 0}
+.card span{font-size:11px;color:var(--muted)}
+.emoji{font-size:27px}
+.giftarea{text-align:center;padding:35px 0 80px}
+.gift{font-size:78px;display:inline-block;cursor:pointer;filter:drop-shadow(0 0 20px #ff9d42aa);animation:bob 2s infinite ease-in-out;user-select:none}
+@keyframes bob{50%{transform:translateY(-12px) rotate(5deg)}}
+.gift:hover{filter:drop-shadow(0 0 30px #ff9d42)}
+.hiddenmsg{display:none;max-width:700px;margin:20px auto 0;padding:25px;border-radius:18px;border:1px solid #ffad4b77;background:#ff9a2812;line-height:2.2;animation:reveal .6s ease}
+.hiddenmsg.open{display:block}
+@keyframes reveal{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+.signature{color:var(--gold);font-size:22px;font-weight:900;margin-top:14px}
+footer{text-align:center;padding:24px;border-top:1px solid #ffffff15;color:#7f8ba0;font-size:11px}
+footer b{color:var(--gold);font-size:16px}
+#musicNote{font-size:11px;color:#9daabd;margin-top:12px}
+@media(max-width:650px){.cards{grid-template-columns:1fr}.hero{min-height:76vh}header{padding:17px 0}.panel{border-radius:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="stars"></div><div class="scan"></div>
+<header>
+<div class="logo">BROTHERHOOD <em>///</em></div>
+<div class="pill"><i></i> PLAYER: HIMA</div>
+</header>
+<main>
+<section class="hero">
+<div>
+<div class="kicker">A LEGEND IS NOT PLAYING ALONE</div>
+<h1>HIMA</h1>
+<div class="tagline">مش مجرد صاحب... <span>ده أخ وسند ❤️</span></div>
+<p class="lead">في ناس بتدخل حياتنا وتبقى جزء من أجمل الذكريات. وهيما واحد من الناس دي؛ جدع، أصيل، ووجوده دايمًا بيخلّي أي وقت أحلى.</p>
+<div class="actions">
+<button class="btn mainbtn" onclick="document.getElementById('gift').scrollIntoView({behavior:'smooth'})">افتح المفاجأة 🎁</button>
+<button class="btn ghost" id="musicBtn" onclick="startMusic()">♫ تشغيل الموسيقى</button>
+</div>
+<div id="musicNote">الموسيقى تحاول البدء تلقائيًا؛ لو المتصفح منعها، اضغط زر التشغيل مرة واحدة.</div>
+</div>
+<div class="scroll">SCROLL TO THE DROP</div>
+</section>
+<section class="wrap">
+<div class="heading"><small>REAL FRIENDSHIP NEVER ENDS</small><h2>أخوّة مش محتاجة كلام كتير 🤝</h2></div>
+<div class="panel">
+<div class="message">يا هيما، الصحاب كتير لكن <strong>الأخوات الجدعان قليلين</strong>.<br>وأنت من الناس اللي الواحد يفتخر بيهم،<br>وقت الضحك موجود ووقت الشدة ليك مكانة كبيرة.<br>ربنا يديمك أخ وصاحب وسند ❤️</div>
+</div>
+<div class="cards">
+<div class="card"><div class="emoji">🛡️</div><b>جدعنة</b><span>مواقفك هي اللي بتتكلم</span></div>
+<div class="card"><div class="emoji">😂</div><b>ضحك وذكريات</b><span>كل قعدة ليها حكاية</span></div>
+<div class="card"><div class="emoji">🎮</div><b>Squad Forever</b><span>صاحب الدروب والانتصار</span></div>
+</div>
+</section>
+<section class="wrap giftarea" id="gift">
+<div class="heading"><small>SECRET MESSAGE UNLOCKED</small><h2>يا قائد، عندك هدية مخصوص 🎁</h2></div>
+<div class="gift" role="button" tabindex="0" aria-label="افتح الهدية" onclick="openGift()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openGift()}">🎁</div>
+<div style="color:var(--muted);font-size:13px">اضغط على الصندوق عشان تفتح رسالتك</div>
+<div class="hiddenmsg" id="secret">
+<div style="font-size:30px">❤️🤜🤛❤️</div>
+يا هيما، مهما الأيام اتغيرت وكل واحد انشغل في طريقه، هتفضل أخويا وصاحبي وحبيب قلبي. أتمنى أشوفك دايمًا مبسوط وناجح، ونفضل في ضهر بعض في كل مرحلة. وجودك في حياتي نعمة، والجدعنة اللي بينا عمرها ما تتنسي. ربنا يديم صحبتنا يا أخويا ❤️
+<div class="signature">من أخوك 𝓐</div>
+</div>
+</section>
+</main>
+<footer>MADE WITH RESPECT & BROTHERHOOD <b>✦ 𝓐</b><br>HIMA · THE LEGEND · SQUAD FOREVER</footer>
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<75;i++){
+let s=document.createElement('i');
+s.className='star';
+s.style.left=Math.random()*100+'%';
+s.style.top=Math.random()*100+'%';
+s.style.animationDelay=Math.random()*3+'s';
+stars.appendChild(s);
+}
+let ctx=null,musicStarted=false,n=0;
+function startMusic(){
+try{
+const AC=window.AudioContext||window.webkitAudioContext;
+if(!AC){document.getElementById('musicNote').textContent='المتصفح لا يدعم الصوت.';return}
+if(!ctx)ctx=new AC();
+ctx.resume().then(()=>{
+if(musicStarted)return;
+musicStarted=true;
+document.getElementById('musicBtn').textContent='♫ الموسيقى تعمل';
+document.getElementById('musicNote').textContent='استمتع بالأجواء 🎵';
+const notes=[196,246.94,293.66,369.99,329.63,293.66,246.94,220];
+function play(){
+if(!musicStarted)return;
+const now=ctx.currentTime;
+[1,1.5].forEach((v,j)=>{
+let o=ctx.createOscillator(),g=ctx.createGain();
+o.type='sine';
+o.frequency.value=notes[(n+j*2)%notes.length]*v;
+g.gain.setValueAtTime(.0001,now);
+g.gain.exponentialRampToValueAtTime(j?.012:.025,now+.12);
+g.gain.exponentialRampToValueAtTime(.0001,now+1.15);
+o.connect(g);g.connect(ctx.destination);
+o.start(now);o.stop(now+1.2);
+});
+n++;
+setTimeout(play,620);
+}
+play();
+});
+}catch(e){
+document.getElementById('musicNote').textContent='تعذر تشغيل الصوت في هذا المتصفح.';
+}
+}
+function openGift(){
+document.getElementById('secret').classList.add('open');
+for(let i=0;i<26;i++){
+let p=document.createElement('span');
+p.textContent=['✨','❤️','✦','🎮'][i%4];
+p.style.cssText=`position:fixed;z-index:9;left:${Math.random()*100}vw;top:${45+Math.random()*40}vh;pointer-events:none;font-size:${14+Math.random()*16}px;animation:floatup 1.8s ease-out forwards`;
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),1900);
+}
+}
+const st=document.createElement('style');
+st.textContent='@keyframes floatup{to{transform:translateY(-130px) rotate(160deg);opacity:0}}';
+document.head.appendChild(st);
+window.addEventListener('load',()=>{startMusic()});
+</script>
+</body>
+</html>
